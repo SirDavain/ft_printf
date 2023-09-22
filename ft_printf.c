@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/22 13:35:04 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/22 17:00:29 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@ int	ft_putstr(char *str)
 }
 
 int	ft_putnbr(int n)
+{
+	char	*str;
+
+	str = ft_itoa(n);
+	return (str);
+}
+
+int	unsigned_putnbr(int n)
+{
+	
+}
+
+char	*unsigned_itoa(unsigned int n)
+{
+	
+}
+
+void	*ft_putptr()
 {
 	
 }
