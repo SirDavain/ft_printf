@@ -6,35 +6,51 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/22 13:16:24 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/22 13:35:04 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_check_format(va_list args, char *str)
+int	ft_putstr(char *str)
 {
-	if (*format == 'c')
-		c = va_arg(args, int);
-	else if (format[i] == 's')
-		ft_putstr();
-	else if (format[i] == 'p')
-		ft_putptr;
-	else if (format[i] == 'd' || format[i] == 'i')
-		ft_putnbr;
-	else if (format[i] == 'u')
-		ft_putun_nbr;
-	else if (format[i] == 'x')
-		ft_puthex_lower;
-	else if (format[i] == 'X')
-		ft_puthex_upper;
-	else if (format[i] == '%')
+	while(*str)
+		write(1, str++, 1);
+	return (1);
+}
+
+int	ft_putnbr(int n)
+{
+	
+}
+
+int	ft_check_format(va_list args, const char format)
+{
+	int	print_len;
+
+	if (format == 'c')
+		print_len += ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		print_len += ft_putstr(va_arg(args, char *));
+	else if (format == 'p')
+		print_len += ft_putptr(va_arg(args, void *));
+	else if (format == 'd' || format == 'i')
+		print_len += ft_putnbr(va_arg(args, int));
+	else if (format == 'u')
+		print_len += ft_putun_nbr(va_arg(args, unsigned int));
+	else if (format == 'x')
+		print_len += ft_puthex_lower(va_arg(args, int));
+	else if (format == 'X')
+		print_len += ft_puthex_upper(va_arg(args, int));
+	else if (format == '%')
 		write(1, '%', 1);
+	return (print_len);
 }
 
 int ft_printf(const char *str, ...)
