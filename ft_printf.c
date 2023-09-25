@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/25 14:07:35 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/25 14:14:28 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,12 +154,10 @@ int	ft_check_format(va_list args, const char format)
 		print_len += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
 		print_len += ft_unsigned_putnbr(va_arg(args, unsigned int));
-	else if (format == 'x')
-		print_len += ft_puthex_lower(va_arg(args, int));
-	else if (format == 'X')
-		print_len += ft_puthex_upper(va_arg(args, int));
+	else if (format == 'x' || format == 'X')
+		print_len += ft_printhex(va_arg(args, int));
 	else if (format == '%')
-		write(1, '%', 1);
+		ft_putchar("%");
 	return (print_len);
 }
 
