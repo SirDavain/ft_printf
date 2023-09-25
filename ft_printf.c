@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/22 17:00:29 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/25 12:34:45 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,69 @@ int	ft_putstr(char *str)
 	return (1);
 }
 
+int	ft_printstr(char *str)
+{
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+}
+
 int	ft_putnbr(int n)
 {
-	char	*str;
+	char	*nbr;
+	int		len;
 
-	str = ft_itoa(n);
-	return (str);
+	len = 0;
+	nbr = ft_itoa(n);
+	len = ft_printstr(nbr);
+	free(nbr);
+	return (len);
 }
 
 int	unsigned_putnbr(int n)
 {
-	
+	int		len;
+	char	*nbr;
+
+	len = 0;
+	nbr = ft_unsigned_itoa(n);
+	len = ft_printstr(nbr);
+	free(nbr);
+	return (len);
 }
 
-char	*unsigned_itoa(unsigned int n)
+int	ft_count_unum(unsigned int n)
 {
-	
+	int	len;
+
+	len = 0;
+	while (n != 0)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
+}
+
+char	*ft_unsigned_itoa(unsigned int n)
+{
+	int	len;
+	char	*nbr;
+
+	len = ft_count_unum(n);
+	nbr = (char *)malloc((len + 1) * sizeof(char));
+	if (!nbr)
+		return (0);
+	nbr[len] = '\0';
+	while (n > 0)
+	{
+		nbr[len - 1] = n % 10 + 48;
+		n /= 10;
+		len--;
+	}
+	return (nbr);
 }
 
 void	*ft_putptr()
