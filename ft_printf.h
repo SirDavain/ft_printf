@@ -5,7 +5,9 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdint.h>
 
-int ft_printf(const char *, ...);
+int 	ft_printf(const char *, ...);
+char	*ft_itoa(int n);
 
 #endif
