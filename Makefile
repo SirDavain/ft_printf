@@ -1,22 +1,21 @@
-DIR = ../libft
-
 NAME = libftprintf.a
 
-SRC = ft_printf.c
+SRC = libft/ft_itoa.c libft/ft_strlen.c libft/ft_strdup.c ft_printf.c \
+
 
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I/Core Curriculum/libft
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-# %.o: %.c libft.h
-# 	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

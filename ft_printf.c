@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/25 15:52:58 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 12:26:48 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,158 +32,6 @@ int	ft_putstr(char *str)
 	{
 		write(1, &str[len], 1);
 		len++;
-	}
-	return (len);
-}
-
-int	ft_putpercent(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
-
-int	ft_count_unum(unsigned int n)
-{
-	int	len;
-
-	len = 0;
-	while (n != 0)
-	{
-		len++;
-		n /= 10;
-	}
-	return (len);
-}
-
-char	*ft_unsigned_itoa(unsigned int n)
-{
-	int	len;
-	char	*nbr;
-
-	len = ft_count_unum(n);
-	nbr = (char *)malloc((len + 1) * sizeof(char));
-	if (!nbr)
-		return (0);
-	nbr[len] = '\0';
-	while (n > 0)
-	{
-		nbr[len - 1] = n % 10 + 48;
-		n /= 10;
-		len--;
-	}
-	return (nbr);
-}
-
-int	ft_putnbr(int n)
-{
-	char	*nbr;
-	int		len;
-
-	len = 0;
-	nbr = ft_itoa(n);
-	len = ft_putstr(nbr);
-	free(nbr);
-	return (len);
-}
-
-int	ft_unsigned_putnbr(int n)
-{
-	int		len;
-	char	*nbr;
-
-	len = 0;
-	nbr = ft_unsigned_itoa(n);
-	len = ft_putstr(nbr);
-	free(nbr);
-	return (len);
-}
-
-int	ft_hex_len(unsigned int n)
-{
-	int	len;
-
-	len = 0;
-	while (n != 0)
-	{
-		len++;
-		n /= 16;
-	}
-	return (len);
-}
-
-void	ft_puthex(unsigned int n, const char format)
-{
-	if (n >= 16)
-	{
-		ft_puthex(n / 16, format);
-		ft_puthex(n % 16, format);
-	}
-	else
-	{
-		if (n <= 9)
-		{
-			ft_putchar((n + '0'));
-		}
-		else
-		{
-			if (format == 'X')
-				ft_putchar(n - 10 + 'A');
-			else if (format == 'x')
-				ft_putchar(n - 10 + 'a');
-		}
-	}
-}
-
-int	ft_printhex(unsigned int n, const char format)
-{
-	if (n == 0)
-		return (write(1, "0", 1));
-	else
-		ft_puthex(n, format);
-	return (ft_hex_len(n));
-}
-
-void	ft_putptr(uintptr_t p)
-{
-	if (p >= 16)
-	{
-		ft_putptr(p / 16);
-		ft_putptr(p % 16);
-	}
-	else
-	{
-		if (p <= 9)
-			ft_putchar(p + '0');
-		else
-			ft_putchar(p - 10 + 'a');
-	}
-}
-
-int	ft_ptr_len(uintptr_t p)
-{
-	int	len;
-
-	len = 0;
-	while (p != 0)
-	{
-		len++;
-		p /= 16;
-	}
-	return (len);
-}
-
-int	ft_printptr(uintptr_t p)
-{
-	int	len;
-
-	len = 0;
-	len += write(1, "0x", 2);
-	if (p == 0)
-		len += write(1, "0", 1);
-	else
-	{
-		ft_putptr(p);
-		len += ft_ptr_len(p);
 	}
 	return (len);
 }
@@ -236,14 +84,14 @@ int ft_printf(const char *str, ...)
 	return (print_len);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-	char	*arr;
+// int main(void)
+// {
+// 	char	*arr;
 
-	arr = "Hello world";
-	ft_printf("%p", arr);
-	printf("%p", arr);
-	return (0);
-}
+// 	arr = "Hello world";
+// 	ft_printf("%p", arr);
+// 	printf("%p", arr);
+// 	return (0);
+// }
