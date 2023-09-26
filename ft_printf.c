@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/26 12:47:41 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 12:58:00 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putstr(char *str)
 
 	if (!str)
 	{
-		write(1,"(null)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	len = 0;
@@ -58,9 +58,9 @@ int	ft_check_format(va_list args, const char format)
 	return (print_len);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list args;
+	va_list	args;
 	int		i;
 	int		print_len;
 

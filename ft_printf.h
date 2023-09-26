@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/26 12:57:12 by dulrich           #+#    #+#             */
+/*   Updated: 2023/09/26 12:59:00 by dulrich          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -7,7 +19,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-int 	ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_check_format(va_list args, const char format);
