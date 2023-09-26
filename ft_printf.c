@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:57:57 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/26 12:58:00 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:18:55 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			print_len += ft_check_format(args, str[i] + 1);
+			print_len += ft_check_format(args, str[i + 1]);
 			i++;
 		}
 		else
