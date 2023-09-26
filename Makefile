@@ -1,13 +1,13 @@
 NAME = libftprintf.a
 
-SRC = libft/ft_itoa.c libft/ft_strlen.c libft/ft_strdup.c ft_printf.c \
-
+SRC = ft_itoa.c ft_strlen.c ft_strdup.c ft_printf.c \
+ft_handle_num.c ft_printhex.c ft_printptr.c ft_printptr.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I/Core Curriculum/libft
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

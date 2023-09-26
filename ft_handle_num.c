@@ -6,11 +6,11 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:11:13 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/26 12:26:47 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 12:47:43 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putpercent(void)
 {
