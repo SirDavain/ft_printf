@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:11:13 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/26 12:55:54 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:35:24 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_unsigned_itoa(unsigned int n)
 	if (!nbr)
 		return (0);
 	nbr[len] = '\0';
-	while (n > 0)
+	while (n != 0)
 	{
 		nbr[len - 1] = n % 10 + 48;
 		n /= 10;
@@ -68,8 +68,13 @@ int	ft_unsigned_putnbr(int n)
 	char	*nbr;
 
 	len = 0;
-	nbr = ft_unsigned_itoa(n);
-	len = ft_putstr(nbr);
-	free(nbr);
+	if (n == 0)
+		len += write(1, "0", 1);
+	else
+	{
+		nbr = ft_unsigned_itoa(n);
+		len = ft_putstr(nbr);
+		free(nbr);
+	}
 	return (len);
 }

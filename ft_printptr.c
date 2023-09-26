@@ -6,7 +6,7 @@
 /*   By: dulrich <dulrich@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:06:25 by dulrich           #+#    #+#             */
-/*   Updated: 2023/09/26 14:09:24 by dulrich          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:15:18 by dulrich          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ int	ft_ptr_len(uintptr_t p)
 	return (len);
 }
 
-int	ft_printptr(unsigned long long ptr)
+int	ft_printptr(uintptr_t p)
 {
 	int	len;
 
 	len = 0;
-	if (ptr == 0)
+	if (p == 0)
 		len += write(1, "(nil)", 5);
 	else
 	{
 		len += write(1, "0x", 2);
-		ft_putptr(ptr);
-		len += ft_ptr_len(ptr);
+		ft_putptr(p);
+		len += ft_ptr_len(p);
 	}
 	return (len);
 }
